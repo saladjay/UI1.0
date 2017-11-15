@@ -4,11 +4,23 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UI1._0.MyPages"
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      xmlns:UIControlLib="clr-namespace:UIControlLib;assembly=UIControlLib"
+      mc:Ignorable="d" MinHeight="600" MinWidth="800"
       Title="GeneralPage">
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+        <Style TargetType="ComboBox" BasedOn="{StaticResource ComboBoxStyle1}"></Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="Background" Value="{StaticResource GradientBlue}"></Setter>
+            <Setter Property="Orientation" Value="Horizontal"></Setter>
+        </Style>
 
-    <Grid Background="Black">
+    </Page.Resources>
+    <Grid Background="DimGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -19,13 +31,69 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <ComboBox Background="LightSkyBlue">
-            <ComboBoxItem>1</ComboBoxItem>
-            <ComboBoxItem>2</ComboBoxItem>
-            <ComboBoxItem>1</ComboBoxItem>
-            <ComboBoxItem>2</ComboBoxItem>
-            <ComboBoxItem>1</ComboBoxItem>
-            <ComboBoxItem>2</ComboBoxItem>
-        </ComboBox>
+        <Grid Grid.Column="1" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="Name Setting" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Audio Input"></TextBlock>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Background="Transparent">
+                <Control Style="{StaticResource DownArrow}"></Control>
+                <TextBlock Text="Name"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" Background="Transparent">
+                <Control Style="{StaticResource DownArrow}"></Control>
+                <TextBlock Text="Start Chime"></TextBlock>
+            </StackPanel>
+            <UniformGrid Grid.Row="2" Grid.ColumnSpan="3" Background="Transparent" Rows="6" Columns="1" Name="InputGrid">
+                <UniformGrid.DataContext>
+                    <local:viewmodel></local:viewmodel>
+                </UniformGrid.DataContext>
+                <UIControlLib:PortControl PortTypeName="Input1" FirstComboBoxContent="{Binding InputComboBox}" PortName="VA-Input1" SecondComboBoxVisibility="Collapsed" ThirdComboBoxVisibility="Collapsed"></UIControlLib:PortControl>
+                <UIControlLib:PortControl PortTypeName="Input1" PortName="VA-Input1" SecondComboBoxVisibility="Collapsed" ThirdComboBoxVisibility="Collapsed"></UIControlLib:PortControl>
+                <UIControlLib:PortControl PortTypeName="Input1" PortName="VA-Input1" SecondComboBoxVisibility="Collapsed" ThirdComboBoxVisibility="Collapsed"></UIControlLib:PortControl>
+                <UIControlLib:PortControl PortTypeName="Input1" PortName="VA-Input1" SecondComboBoxVisibility="Collapsed" ThirdComboBoxVisibility="Collapsed"></UIControlLib:PortControl>
+                <UIControlLib:PortControl PortTypeName="Input1" PortName="VA-Input1" SecondComboBoxVisibility="Collapsed" ThirdComboBoxVisibility="Collapsed"></UIControlLib:PortControl>
+                <UIControlLib:PortControl PortTypeName="Input1" PortName="VA-Input1" SecondComboBoxVisibility="Collapsed" ThirdComboBoxVisibility="Collapsed"></UIControlLib:PortControl>
+            </UniformGrid>
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border CornerRadius="10" Grid.Row="0" Grid.ColumnSpan="2" Background="DarkGray">
+                <StackPanel Background="Transparent" Margin="10,0">
+                    <Label Foreground="Snow" Background="Transparent" Content="VM-3000VA/VM-3000E" Style="{StaticResource LightBlueLabel}"></Label>
+                    <ComboBox Background="LightSlateGray"></ComboBox>
+                    <Button Style="{StaticResource RightForwardButton}" Margin="10,0" Width="50"></Button>
+                </StackPanel>
+            </Border>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Audio Output"></TextBlock>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Background="Transparent">
+                <Control Style="{StaticResource DownArrow}"></Control>
+                <TextBlock Text="Name"></TextBlock>
+            </StackPanel>
+            <UniformGrid Grid.Row="2" Grid.ColumnSpan="2" Rows="6">
+                <UIControlLib:PortControl PortTypeName="Output" PortName="VA-OUTPUT" FirstComboBoxVisibility="Collapsed" SecondComboBoxVisibility="Collapsed" ThirdComboBoxVisibility="Collapsed"></UIControlLib:PortControl>
+                <UIControlLib:PortControl PortTypeName="Output" PortName="VA-OUTPUT" FirstComboBoxVisibility="Collapsed" SecondComboBoxVisibility="Collapsed" ThirdComboBoxVisibility="Collapsed"></UIControlLib:PortControl>
+                <UIControlLib:PortControl PortTypeName="Output" PortName="VA-OUTPUT" FirstComboBoxVisibility="Collapsed" SecondComboBoxVisibility="Collapsed" ThirdComboBoxVisibility="Collapsed"></UIControlLib:PortControl>
+                <UIControlLib:PortControl PortTypeName="Output" PortName="VA-OUTPUT" FirstComboBoxVisibility="Collapsed" SecondComboBoxVisibility="Collapsed" ThirdComboBoxVisibility="Collapsed"></UIControlLib:PortControl>
+                <UIControlLib:PortControl PortTypeName="Output" PortName="VA-OUTPUT" FirstComboBoxVisibility="Collapsed" SecondComboBoxVisibility="Collapsed" ThirdComboBoxVisibility="Collapsed"></UIControlLib:PortControl>
+                <UIControlLib:PortControl PortTypeName="Output" PortName="VA-OUTPUT" FirstComboBoxVisibility="Collapsed" SecondComboBoxVisibility="Collapsed" ThirdComboBoxVisibility="Collapsed"></UIControlLib:PortControl>
+            </UniformGrid>
+        </Grid>
     </Grid>
 </Page>

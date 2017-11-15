@@ -1,0 +1,25 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:UIControlLib">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/UIControlLib;component/Themes/DeviceControlButtonCell.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/UIControlLib;component/Themes/DeviceControlDisplayCell.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/UIControlLib;component/Themes/DeviceControlItem.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/UIControlLib;component/Themes/DeviceViewGrid.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/UIControlLib;component/Themes/ZoneViewGrid.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/UIControlLib;component/Themes/RowButton.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/UIControlLib;component/Themes/ColumnButton.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/UIControlLib;component/Themes/NavigationButton.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/UIControlLib;component/Themes/PortControl.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="local:DeviceViewGrid" BasedOn="{StaticResource DeviceViewGridStyle}"></Style>
+    <Style TargetType="local:DeviceControlButtonCell" BasedOn="{StaticResource DeviceControlButtonCellStyle}"></Style>
+    <Style TargetType="local:DeviceControlDisplayCell" BasedOn="{StaticResource DeviceControlDisplayCellStyle}"></Style>
+    <Style TargetType="local:DeviceControlItem" BasedOn="{StaticResource DeviceControlItemStyle}"></Style>
+    <Style TargetType="local:RowButton" BasedOn="{StaticResource RowButtonStyle}"></Style>
+    <Style TargetType="local:ColumnButton" BasedOn="{StaticResource ColumnButtonStyle}"></Style>
+    <Style TargetType="local:NavigationButton" BasedOn="{StaticResource NavigationButtonStyle}"></Style>
+    <Style TargetType="local:PortControl" BasedOn="{StaticResource PortControlStyle}"></Style>
+</ResourceDictionary>
+    

@@ -1,0 +1,49 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:UIControlLib">
+    <Style TargetType="Control" x:Key="RightArrow">
+        <Setter Property="Foreground" Value="Snow"></Setter>
+        <Setter Property="Margin" Value="10,0,15,0"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border>
+                        <Border.LayoutTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90"></RotateTransform>
+                            </TransformGroup>
+                        </Border.LayoutTransform>
+                        <Path x:Name="arrow" Data="M 1,1.5 L 4.5,5 L 8,1.5" HorizontalAlignment="Center" SnapsToDevicePixels="false" Stroke="LightYellow" StrokeThickness="2" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="local:PortControl" x:Key="PortControlStyle">
+        <Setter Property="Foreground" Value="Snow"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:PortControl">
+                    <UniformGrid Rows="1">
+                        <StackPanel Orientation="Horizontal">
+                            <Control Style="{StaticResource RightArrow}"></Control>
+                            <TextBlock Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding PortTypeName}" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
+                        </StackPanel>
+                        <TextBlock Foreground="{TemplateBinding Foreground}" Name="PortNameBlock" Text="{TemplateBinding PortName}" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
+                        <TextBlock Foreground="{TemplateBinding Foreground}" Name="IndexBlock" Text="{TemplateBinding Index}" Visibility="Visible"></TextBlock>
+                        <ComboBox Name="ComboBoxA" ItemsSource="{TemplateBinding FirstComboBoxContent}" Visibility="{TemplateBinding FirstComboBoxVisibility}"></ComboBox>
+                        <ComboBox Name="ComboBoxB" ItemsSource="{TemplateBinding SecondComboBoxContent}" Visibility="{TemplateBinding SecondComboBoxVisibility}"></ComboBox>
+                        <ComboBox Name="ComboBoxC" ItemsSource="{TemplateBinding ThirdComboBoxContent}" Visibility="{TemplateBinding ThirdComboBoxVisibility}"></ComboBox>
+                    </UniformGrid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Index" Value="0">
+                            <Setter TargetName="PortNameBlock" Property="Visibility" Value="Visible"></Setter>
+                            <Setter TargetName="IndexBlock" Property="Visibility" Value="Collapsed"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

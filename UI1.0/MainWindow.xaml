@@ -3,9 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:UILib="clr-namespace:UILib.Cores;assembly=UILib"
+        xmlns:UIControlLib="clr-namespace:UIControlLib;assembly=UIControlLib"
         xmlns:local="clr-namespace:UI1._0"
+        
         mc:Ignorable="d"
-        Title="VAS SYSTEM" Background="DimGray">
+        Title="VAS SYSTEM" Background="DimGray" Name="main">
+    <Window.Resources>
+        <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource PageButtonStyle}">
+            <Setter Property="Command" Value="{Binding OpenCommand,ElementName=main}"/>
+        </Style>
+        
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
@@ -13,30 +22,32 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <RadioButton Style="{StaticResource PageButtonStyle}">System</RadioButton>
-            <RadioButton Style="{StaticResource PageButtonStyle}">General</RadioButton>
-            <RadioButton Style="{StaticResource PageButtonStyle}">Audio Routing</RadioButton>
-            <RadioButton Style="{StaticResource PageButtonStyle}">Zone Setting</RadioButton>
-            <RadioButton Style="{StaticResource PageButtonStyle}">Surveillance</RadioButton>
-            <RadioButton Style="{StaticResource PageButtonStyle}">Event</RadioButton>
-            <RadioButton Style="{StaticResource PageButtonStyle}">Priority</RadioButton>
-            <RadioButton Style="{StaticResource PageButtonStyle}">Log</RadioButton>
-            <RadioButton Style="{StaticResource PageButtonStyle}">Error List</RadioButton>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Name="NavigationBar">
+            <RadioButton >System</RadioButton>
+            <RadioButton >General</RadioButton>
+            <RadioButton >Audio Routing</RadioButton>
+            <RadioButton >Zone Setting</RadioButton>
+            <RadioButton >Surveillance</RadioButton>
+            <RadioButton >Event</RadioButton>
+            <RadioButton >Priority</RadioButton>
+            <RadioButton >Log</RadioButton>
+            <RadioButton >Error List</RadioButton>
+            <Button Width="50" Click="Button_Click"></Button>
+            <Button Width="50" Click="Button_Click_1"></Button>
         </StackPanel>
-        <Frame Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>
+        <Frame Grid.Row="1" NavigationUIVisibility="Hidden" Name="PageContext"></Frame>
         <Grid Grid.Row="2" Height="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="60*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="1" Background="AliceBlue"></Grid>
+            <Grid Grid.Column="1" Background="Black"></Grid>
         </Grid>
         <StackPanel Grid.Row="3" Orientation="Horizontal">
             <TextBlock Margin="10,0">State:</TextBlock>
             <TextBlock></TextBlock>
-            <ComboBox Background="LightSlateGray" Style="{StaticResource ComboBoxStyle1}">
+            <ComboBox Background="LightSlateGray" Style="{StaticResource ComboBoxStyle1}" Focusable="True" Name="testcombobox">
                 <ComboBoxItem>1</ComboBoxItem>
                 <ComboBoxItem>1</ComboBoxItem>
                 <ComboBoxItem>1</ComboBoxItem>

@@ -4,6 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI1.0", "UI1.0\UI1.0.csproj", "{5413DA57-07E1-4AB6-92DB-F0022CEEB02D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F2985970-2F62-4475-AD63-1137D88151EE} = {F2985970-2F62-4475-AD63-1137D88151EE}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UILib", "UILib\UILib.csproj", "{D512B924-1F78-4D65-BA0A-16FF9930DD25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIControlLib", "UIControlLilb\UIControlLib.csproj", "{F2985970-2F62-4475-AD63-1137D88151EE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D512B924-1F78-4D65-BA0A-16FF9930DD25} = {D512B924-1F78-4D65-BA0A-16FF9930DD25}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,14 @@ Global
 		{5413DA57-07E1-4AB6-92DB-F0022CEEB02D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5413DA57-07E1-4AB6-92DB-F0022CEEB02D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5413DA57-07E1-4AB6-92DB-F0022CEEB02D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D512B924-1F78-4D65-BA0A-16FF9930DD25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D512B924-1F78-4D65-BA0A-16FF9930DD25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D512B924-1F78-4D65-BA0A-16FF9930DD25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D512B924-1F78-4D65-BA0A-16FF9930DD25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2985970-2F62-4475-AD63-1137D88151EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2985970-2F62-4475-AD63-1137D88151EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2985970-2F62-4475-AD63-1137D88151EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2985970-2F62-4475-AD63-1137D88151EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

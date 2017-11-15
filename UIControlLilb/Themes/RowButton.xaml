@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:UIControlLib">
+    <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#50FFFFFF" Offset="0"></GradientStop>
+        <GradientStop Color="#50000000" Offset="1"></GradientStop>
+    </LinearGradientBrush>
+
+    <Thickness Left="2" Top="2" Right="2" Bottom="2" x:Key="OriginalMargin"></Thickness>
+    <Thickness Left="4" Top="4" Right="0" Bottom="0" x:Key="PressedMargin"></Thickness>
+    <Style x:Key="RowButtonStyle" TargetType="local:RowButton">
+        <Setter Property="Background" Value="LightSlateGray"/>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:RowButton">
+                    <Grid>
+                        <Border CornerRadius="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" x:Name="B1" Margin="{StaticResource OriginalMargin}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"  SnapsToDevicePixels="true"></Border>
+                        <Border CornerRadius="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" x:Name="B2" Margin="{StaticResource OriginalMargin}" Background="{StaticResource ButtonNormalBackground}" IsHitTestVisible="False">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <!--<Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background"  Value="Chartreuse"/>
+                        </Trigger>-->
+                        <Trigger Property="local:AttachedPropertyButton.Activited" Value="True">
+                            <Setter Property="Background" Value="Chartreuse"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Margin" TargetName="B1" Value="{StaticResource PressedMargin}"></Setter>
+                            <Setter Property="Margin" TargetName="B2" Value="{StaticResource PressedMargin}"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="#ADADAD"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
